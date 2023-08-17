@@ -1,7 +1,6 @@
 import { useState } from "react";
-import "./App.css";
 
-function App() {
+const FileParser = () => {
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
 
@@ -20,15 +19,14 @@ function App() {
 
   console.log(name);
   console.log(content);
-
   return (
-    <>
+    <div>
       <h1>File Reader</h1>
       <h2>{name}</h2>
       <p>{content}</p>
       <input type="file" onChange={handleFileChange} />
-    </>
+    </div>
   );
-}
+};
 
-export default App;
+export default FileParser;
