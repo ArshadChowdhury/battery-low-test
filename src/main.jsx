@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import FormSecondStage from "./second-step.jsx";
 import FormFirstStage from "./index.jsx";
+import ResultPageWithDownload from "./result-page";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
   },
   {
     path: "result-page",
-    element: <FormSecondStage />,
+    element: <ResultPageWithDownload />,
   },
 ]);
 

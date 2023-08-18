@@ -4,8 +4,6 @@ function FormSecondStage() {
   return (
     <>
       <FormSecondStep />
-      {/* <FileParser /> */}
-      <h1>YO</h1>
     </>
   );
 }

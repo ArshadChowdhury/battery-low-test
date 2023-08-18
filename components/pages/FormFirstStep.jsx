@@ -5,9 +5,17 @@ import TextAreaField from "../forms/TextAreaField";
 import ErrorMessage from "../forms/ErrorMessage";
 import { useNavigate } from "react-router-dom";
 
+const formInputStyles = {
+  errorStyle:
+    "focus:outline-red-400 border-red-400 border mt-1 rounded px-2 py-2 rounded-md",
+  normalStyle: "my-1 rounded-md px-2 py-2 focus:outline-none",
+};
+
 function FormFirstStep() {
   const navigate = useNavigate();
+
   // yup schema to validate input data and shwoing user errors accrodingly
+
   const createProjectSchema = yup.object().shape({
     project_name: yup
       .string()
@@ -44,26 +52,20 @@ function FormFirstStep() {
       contractor_name: "",
     },
     onSubmit: (values, { resetForm }) => {
-      // alert(JSON.stringify(values, null, 2));
+      localStorage.setItem("project-data", JSON.stringify(values, null, 2));
       resetForm();
       return navigate("/second-step");
     },
     validationSchema: createProjectSchema,
   });
 
-  const formInputStyles = {
-    errorStyle:
-      "focus:outline-red-400 border-red-400 border-2 mt-1 rounded px-2 py-1",
-    normalStyle: "my-1 rounded px-2 py-1 focus:outline-none",
-  };
-
   return (
-    <section className="flex justify-center items-center bg-slate-50 h-screen">
-      <div className="w-full md:w-3/5 mx-4 lg:mx-0 flex flex-col items-center gap-8 rounded-lg">
+    <section className="flex justify-center items-center bg-slate-50 min-h-screen">
+      <div className="w-full mx-4 lg:mx-0 flex flex-col items-center gap-8 rounded-lg">
         <h1 className="font-bold text-4xl">Add a project</h1>
         <div className="bg-gray-200 w-full lg:w-1/2 rounded-md">
           <form
-            className="px-10 flex flex-col my-10"
+            className="p-8 flex flex-col gap-1 my-2"
             onSubmit={formik.handleSubmit}
           >
             <TextInputField

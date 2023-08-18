@@ -8,6 +8,7 @@ const TextInputField = (props) => {
     onChange = () => {},
     className,
     onBlur,
+    disabled,
   } = props;
 
   return (
@@ -24,6 +25,7 @@ const TextInputField = (props) => {
         value={value}
         onChange={onChange}
         onBlur={onBlur}
+        disabled={disabled}
       />
     </>
   );
