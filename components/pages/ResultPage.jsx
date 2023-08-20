@@ -142,7 +142,11 @@ const ResultPage = () => {
           Download result PDF
         </button>
 
-        <a className="text-gray-500 underline hover:text-gray-700" href="/">
+        <a
+          onClick={deleteDataFromLocal}
+          className="text-gray-500 underline hover:text-gray-700"
+          href="/"
+        >
           Add another Project
         </a>
       </section>
