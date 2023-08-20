@@ -1,0 +1,10 @@
+[build]
+  command = "vite build && vite export"
+  publish = "out"
+
+...
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
