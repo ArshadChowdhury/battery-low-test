@@ -87,7 +87,7 @@ function FormSecondStep() {
               className={formInputStyles.normalStyle}
               disabled={true}
             />
-            <FileParser setFormData={setFormData} />
+            <FileParser setFormData={setFormData} formData={formData} />
             <TextInputField
               type="number"
               name="max_X"

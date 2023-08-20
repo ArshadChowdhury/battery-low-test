@@ -1,7 +1,16 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import BarChart from "./BarChart";
 
-const FileParser = ({ setFormData }) => {
+const FileParser = ({ setFormData, formData }) => {
   const [errorMessage, setErrorMessage] = useState("");
+  const [dataForChart, setDataForChart] = useState([]);
+  const [hasUploadedFile, setHasUploadedFile] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [chartData, setChartData] = useState({
+    labels: [],
+    datasets: [{ labels: [], data: [] }],
+  });
+  console.log(chartData);
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -15,9 +24,13 @@ const FileParser = ({ setFormData }) => {
         max_Z: "",
         min_Z: "",
       });
+      setHasUploadedFile(false);
+      return;
     }
 
     if (file.type === "text/csv") {
+      setLoading(true);
+      setHasUploadedFile(true);
       setErrorMessage("");
       const reader = new FileReader();
       reader.readAsText(file);
@@ -53,16 +66,29 @@ const FileParser = ({ setFormData }) => {
           max_Z: Math.max(...z),
           min_Z: Math.min(...z),
         };
+        console.log(values);
         setFormData({
           ...values,
         });
         const payload = { ...data, ...values };
+        console.log(payload);
         localStorage.setItem("project-data", JSON.stringify(payload));
+        setChartData({
+          labels: [payload.max_X],
+          datasets: [
+            {
+              labels: [],
+              data: [payload.max_X, payload.max_X, payload.max_X],
+            },
+          ],
+        });
       };
 
       reader.onerror = () => {
         console.log("file error", reader.error);
       };
+
+      setLoading(false);
     } else {
       setErrorMessage("Wrong file format ! Please upload a CSV file");
       return;
@@ -71,8 +97,10 @@ const FileParser = ({ setFormData }) => {
 
   return (
     <>
+      {hasUploadedFile && <BarChart chartData={chartData} />}
       <label htmlFor="file">Upload a CSV file</label>
       <input id="file" type="file" onChange={handleFileChange} />
+      {loading && "Loading..."}
       <p className="text-red-800">{errorMessage.length > 0 && errorMessage}</p>
     </>
   );
