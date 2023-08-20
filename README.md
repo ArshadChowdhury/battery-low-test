@@ -12,4 +12,6 @@
 
 ## You can access a custom CSV list right here, all you have to do it download it from here and then upload in into our project - https://drive.google.com/file/d/1RD5fU_FN5DlnQCwo_TWPIFPzZAKDTzVa/view?usp=drive_link
 
+## After uploading the CSV file we get to see the bar chart of the Maximum and Minimum X , Y , Z as well
+
 ## Then finally after putting in all the values necessary you can download the result page as a pdf so it can be examined further. Also there's an add another project button in case you wanna add another project. Which will clear the first step info from localstorage and stop you to navigating directly http://localhost:5173/second-step or http://localhost:5173/result-page
