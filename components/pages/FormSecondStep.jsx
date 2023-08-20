@@ -21,6 +21,7 @@ function FormSecondStep() {
   const navigate = useNavigate();
 
   // yup schema to validate input data and shwoing user errors accrodingly
+
   const createProjectSchema = yup.object().shape({
     max_X: yup.string().required("Max X is required"),
     min_X: yup.string().required("Min X is required"),
@@ -55,7 +56,7 @@ function FormSecondStep() {
         <h1 className="font-bold text-4xl my-4 text-center">
           Add additional information
         </h1>
-        <div className="bg-gray-400 w-full lg:w-1/2 rounded-md">
+        <div className="bg-gray-400 w-full mb-8 lg:w-1/2 rounded-md">
           <form
             className="px-8 flex flex-col gap-1 my-6"
             onSubmit={formik.handleSubmit}

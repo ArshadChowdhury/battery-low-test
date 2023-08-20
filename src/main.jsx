@@ -1,8 +1,9 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { StrictMode } from "react";
 
 import "./index.css";
+
 import FormSecondStage from "./second-step.jsx";
 import FormFirstStage from "./index.jsx";
 import ResultPageWithDownload from "./result-page";

@@ -13,7 +13,7 @@ const TextInputField = (props) => {
 
   return (
     <>
-      <label htmlFor={name} className="text-gray-950">
+      <label htmlFor={name} className="text-gray-450">
         {label}
       </label>
       <input

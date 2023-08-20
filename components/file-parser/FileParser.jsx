@@ -53,17 +53,10 @@ const FileParser = ({ setFormData }) => {
           max_Z: Math.max(...z),
           min_Z: Math.min(...z),
         };
-
-        console.log({ ...values });
-
         setFormData({
           ...values,
         });
-        console.log(data);
         const payload = { ...data, ...values };
-        // data.push({ ...values });
-        // const newData = [...]
-        console.log(data);
         localStorage.setItem("project-data", JSON.stringify(payload));
       };
 

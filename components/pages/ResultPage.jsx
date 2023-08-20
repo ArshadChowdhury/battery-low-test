@@ -1,6 +1,7 @@
+import { useRef } from "react";
+
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
-import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 const ResultPage = () => {
@@ -26,7 +27,6 @@ const ResultPage = () => {
       const imgWidth = canvas.width;
       const imgHeight = canvas.height;
       const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
-      console.log(imgWidth);
       const imgX = (pdfWidth - imgWidth * ratio) / 2;
       const imgY = 45;
       pdf.addImage(
@@ -51,7 +51,6 @@ const ResultPage = () => {
       const imgWidth = canvas.width;
       const imgHeight = canvas.height;
       const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
-      console.log(imgWidth);
       const imgX = (pdfWidth - imgWidth * ratio) / 2;
       const imgY = 10;
       pdf.addImage(
@@ -66,7 +65,9 @@ const ResultPage = () => {
     });
   };
 
-  if (data === null) return navigate("/");
+  if (data === null) {
+    return navigate("/");
+  }
 
   return (
     <>
@@ -192,7 +193,7 @@ const ResultPage = () => {
 
         <button
           onClick={downloadPDFMobile}
-          className="px-4 py-2 bg-gray-500 rounded-lg text-slate-50"
+          className="px-4 py-2 mb-6 bg-gray-500 rounded-lg text-slate-50"
         >
           Download result PDF
         </button>
