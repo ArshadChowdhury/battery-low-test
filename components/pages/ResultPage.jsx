@@ -66,6 +66,10 @@ const ResultPage = () => {
     });
   };
 
+  const deleteDataFromLocal = () => {
+    localStorage.removeItem("project-data");
+  };
+
   if (data === null) {
     return navigate("/");
   }
@@ -200,10 +204,17 @@ const ResultPage = () => {
 
         <button
           onClick={downloadPDFMobile}
-          className="px-4 py-2 mb-6 bg-gray-500 rounded-lg self-center text-slate-50"
+          className="px-4 py-2 my-2 bg-gray-500 rounded-lg self-center text-slate-50"
         >
           Download result PDF
         </button>
+        <a
+          onClick={deleteDataFromLocal}
+          className="text-gray-500 underline hover:text-gray-700 self-center mb-6"
+          href="/"
+        >
+          Add another Project
+        </a>
       </section>
     </>
   );
