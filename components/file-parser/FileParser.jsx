@@ -72,7 +72,7 @@ const FileParser = ({ setFormData }) => {
   return (
     <>
       <label htmlFor="file">Upload a CSV file</label>
-      <input id="file" type="file" accept="csv" onChange={handleFileChange} />
+      <input id="file" type="file" onChange={handleFileChange} />
       <p className="text-red-800">{errorMessage.length > 0 && errorMessage}</p>
     </>
   );
