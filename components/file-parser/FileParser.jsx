@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import BarChart from "./BarChart";
 
-const FileParser = ({ setFormData, formData }) => {
+const FileParser = ({ setFormData }) => {
   const [errorMessage, setErrorMessage] = useState("");
-  const [dataForChart, setDataForChart] = useState([]);
-  const [hasUploadedFile, setHasUploadedFile] = useState(false);
+  const [hasUploadedCSVFile, setHasUploadedCSVFile] = useState(false);
   const [loading, setLoading] = useState(false);
   const [chartData, setChartData] = useState({
     labels: [],
@@ -24,13 +23,13 @@ const FileParser = ({ setFormData, formData }) => {
         max_Z: "",
         min_Z: "",
       });
-      setHasUploadedFile(false);
+      setHasUploadedCSVFile(false);
       return;
     }
 
     if (file.type === "text/csv") {
       setLoading(true);
-      setHasUploadedFile(true);
+      setHasUploadedCSVFile(true);
       setErrorMessage("");
       const reader = new FileReader();
       reader.readAsText(file);
@@ -77,8 +76,9 @@ const FileParser = ({ setFormData, formData }) => {
           labels: [payload.max_X],
           datasets: [
             {
-              labels: [],
-              data: [payload.max_X, payload.max_X, payload.max_X],
+              axis: "y",
+              label: "Maximum X value",
+              data: [payload.max_X],
             },
           ],
         });
@@ -97,7 +97,7 @@ const FileParser = ({ setFormData, formData }) => {
 
   return (
     <>
-      {hasUploadedFile && <BarChart chartData={chartData} />}
+      {hasUploadedCSVFile && <BarChart chartData={chartData} />}
       <label htmlFor="file">Upload a CSV file</label>
       <input id="file" type="file" onChange={handleFileChange} />
       {loading && "Loading..."}
