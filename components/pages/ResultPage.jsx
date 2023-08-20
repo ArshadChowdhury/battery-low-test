@@ -21,7 +21,7 @@ const ResultPage = () => {
     const input = pdfRef.current;
     html2canvas(input).then((canvas) => {
       const imgData = canvas.toDataURL("img/png");
-      const pdf = new jsPDF("l", "mm", "a4", true);
+      const pdf = new jsPDF("p", "mm", "a4", true);
       const pdfWidth = pdf.internal.pageSize.getWidth();
       const pdfHeight = pdf.internal.pageSize.getHeight();
       const imgWidth = canvas.width;
@@ -37,6 +37,7 @@ const ResultPage = () => {
         imgWidth * ratio,
         imgHeight * ratio
       );
+
       pdf.save("result.pdf");
     });
   };
