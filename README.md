@@ -1,6 +1,6 @@
 
 
-# This is an assignment task provided by Batterly Low Interactive
+# XYZ Petroleum Prototype
 
 ## In this prototype project we wanna determine the maximum & minimum X, Y , Z from CSV file or from user input. If there's no CSV file present user can use input fields to provide values for the respective fields as well.
 
