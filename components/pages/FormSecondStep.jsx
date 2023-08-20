@@ -1,11 +1,13 @@
-import { useFormik } from "formik";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import { useFormik } from "formik";
 import * as yup from "yup";
+
+import ErrorMessage from "../forms/ErrorMessage";
+import FileParser from "../file-parser/FileParser";
 import TextInputField from "../forms/TextInputField";
 import TextAreaField from "../forms/TextAreaField";
-import { useNavigate } from "react-router-dom";
-import FileParser from "../file-parser/FileParser";
-import ErrorMessage from "../forms/ErrorMessage";
 
 function FormSecondStep() {
   const getData = localStorage.getItem("project-data");
@@ -52,8 +54,8 @@ function FormSecondStep() {
 
   return (
     <section className="flex justify-center items-center bg-slate-50 min-h-screen">
-      <div className="w-full min-w-lg mx-4 lg:mx-0 flex flex-col items-center rounded-lg">
-        <h1 className="font-bold text-4xl my-4 text-center">
+      <div className="w-full min-w-lg mx-4 lg:mx-0 flex flex-col gap-8 items-center rounded-lg">
+        <h1 className="font-bold text-4xl mt-8 text-center">
           Add additional information
         </h1>
         <div className="bg-gray-400 w-full mb-8 lg:w-1/2 rounded-md">

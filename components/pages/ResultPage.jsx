@@ -1,8 +1,8 @@
 import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
-import { useNavigate } from "react-router-dom";
 
 const ResultPage = () => {
   const pdfRef = useRef();
@@ -28,7 +28,7 @@ const ResultPage = () => {
       const imgHeight = canvas.height;
       const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
       const imgX = (pdfWidth - imgWidth * ratio) / 2;
-      const imgY = 45;
+      const imgY = 35;
       pdf.addImage(
         imgData,
         "PNG",
@@ -52,7 +52,7 @@ const ResultPage = () => {
       const imgHeight = canvas.height;
       const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
       const imgX = (pdfWidth - imgWidth * ratio) / 2;
-      const imgY = 10;
+      const imgY = -5;
       pdf.addImage(
         imgData,
         "PNG",
@@ -137,63 +137,65 @@ const ResultPage = () => {
           Download result PDF
         </button>
       </section>
-      <section
-        ref={pdfMobileRef}
-        className="flex flex-col gap-4 mx-4 items-center lg:hidden"
-      >
-        <h1 className="text-4xl text-gray-700 font-extrabold my-6">Result</h1>
-        <div className="flex flex-col w-full gap-4 bg-white border shadow-md border-gray-200 rounded-lg p-6 divide-y divide-gray-200">
-          <h2 className={style.cardBetween}>
-            Project Name
-            <span className="text-gray-700 font-semibold px-2 text-right truncate py-4">
-              {data.project_name}
-            </span>
-          </h2>
-          <h2 className={style.cardBetween}>
-            Client&apos;s Name
-            <span className="px-2 text-right truncate py-4">
-              {data.client_name}
-            </span>
-          </h2>
-          <h2 className={style.cardBetween}>
-            Project Description
-            <span className="px-2 text-right truncate py-4">
-              {data.project_description}
-            </span>
-          </h2>
-          <h2 className={style.cardBetween}>
-            Contractor&apos;s Name
-            <span className="px-2 truncate py-4">{data.contractor_name}</span>
-          </h2>
+      <section className="flex flex-col gap-4 lg:hidden">
+        <div
+          className="flex flex-col mx-4 items-center justify-center"
+          ref={pdfMobileRef}
+        >
+          <h1 className="text-4xl text-gray-700 font-extrabold my-6">Result</h1>
+          <div className="flex flex-col w-full gap-4 bg-white border shadow-md border-gray-200 rounded-lg p-6 divide-y divide-gray-200">
+            <h2 className={style.cardBetween}>
+              Project Name
+              <span className="text-gray-700 font-semibold px-2 text-right truncate py-4">
+                {data.project_name}
+              </span>
+            </h2>
+            <h2 className={style.cardBetween}>
+              Client&apos;s Name
+              <span className="px-2 text-right truncate py-4">
+                {data.client_name}
+              </span>
+            </h2>
+            <h2 className={style.cardBetween}>
+              Project Description
+              <span className="px-2 text-right truncate py-4">
+                {data.project_description}
+              </span>
+            </h2>
+            <h2 className={style.cardBetween}>
+              Contractor&apos;s Name
+              <span className="px-2 truncate py-4">{data.contractor_name}</span>
+            </h2>
 
-          <h2 className={style.cardBetween}>
-            Max X<span className="px-2 truncate py-4">{data.max_X}</span>
-          </h2>
+            <h2 className={style.cardBetween}>
+              Max X<span className="px-2 truncate py-4">{data.max_X}</span>
+            </h2>
 
-          <h2 className={style.cardBetween}>
-            Min X<span className="px-2 truncate py-4">{data.min_X}</span>
-          </h2>
+            <h2 className={style.cardBetween}>
+              Min X<span className="px-2 truncate py-4">{data.min_X}</span>
+            </h2>
 
-          <h2 className={style.cardBetween}>
-            Max Y <span className="px-2 truncate py-4">{data.max_Y}</span>
-          </h2>
+            <h2 className={style.cardBetween}>
+              Max Y <span className="px-2 truncate py-4">{data.max_Y}</span>
+            </h2>
 
-          <h2 className={style.cardBetween}>
-            Min Y<span className="px-2 truncate py-4">{data.min_Y}</span>
-          </h2>
+            <h2 className={style.cardBetween}>
+              Min Y<span className="px-2 truncate py-4">{data.min_Y}</span>
+            </h2>
 
-          <h2 className={style.cardBetween}>
-            Max Z <span className="px-2 truncate py-4">{data.max_Z}</span>
-          </h2>
+            <h2 className={style.cardBetween}>
+              Max Z <span className="px-2 truncate py-4">{data.max_Z}</span>
+            </h2>
 
-          <h2 className={style.cardBetween}>
-            Min Z <span className="px-2 truncate py-4">{data.min_Z}</span>
-          </h2>
+            <h2 className={style.cardBetween}>
+              Min Z <span className="px-2 truncate py-4">{data.min_Z}</span>
+            </h2>
+          </div>
         </div>
 
         <button
           onClick={downloadPDFMobile}
-          className="px-4 py-2 mb-6 bg-gray-500 rounded-lg text-slate-50"
+          className="px-4 py-2 mb-6 bg-gray-500 rounded-lg self-center text-slate-50"
         >
           Download result PDF
         </button>
