@@ -1,6 +1,6 @@
 
 
-# XYZ Petroleum Prototype
+# XYZ Petroleum App Prototype
 
 ## In this prototype project we wanna determine the maximum & minimum X, Y , Z from CSV file or from user input. If there's no CSV file present user can use input fields to provide values for the respective fields as well.
 
