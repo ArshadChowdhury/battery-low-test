@@ -1,8 +1,16 @@
 
 
-# XYZ Petroleum App Prototype
+# XYZ Petroleum App
 
-## In this prototype project we wanna determine the maximum & minimum X, Y , Z from CSV file or from user input. If there's no CSV file present user can use input fields to provide values for the respective fields as well.
+## In this project we wanna determine the maximum & minimum X, Y , Z from CSV file or from user input. If there's no CSV file present user can use input fields to provide values for the respective fields as well.
+
+## Overview of the app - 
+
+![image](https://github.com/ArshadChowdhury/csv-parser-app/assets/86738490/0dd3ccb3-b4f2-4dfa-9b51-78cc69579708)
+
+![image](https://github.com/ArshadChowdhury/csv-parser-app/assets/86738490/f4f1d279-d0af-4ab3-b580-010f28cb7f7d)
+
+![image](https://github.com/ArshadChowdhury/csv-parser-app/assets/86738490/fb71a5dc-28d3-42af-946e-029300047a69)
 
 ## To run this project locally after cloning it run ```yarn install``` in terminal and then after installing all the dependencies you have to run ```yarn dev``` to run the development server or you can run ```yarn build``` and then ```yarn start``` for production server.
 
