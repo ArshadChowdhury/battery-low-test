@@ -2,7 +2,7 @@
 
 # XYZ Petroleum App
 
-## In this project we wanna determine the maximum & minimum X, Y , Z from CSV file or from user input. If there's no CSV file present user can use input fields to provide values for the respective fields as well.
+In this project we wanna determine the maximum & minimum X, Y , Z from CSV file or from user input. If there's no CSV file present user can use input fields to provide values for the respective fields as well.
 
 ## Overview of the app - 
 
